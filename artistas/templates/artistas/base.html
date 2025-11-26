@@ -5,7 +5,7 @@
     <title>{% block title %}MusicList{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
 
     <div class="bg-texture"></div>
 

@@ -1,0 +1,24 @@
+{% extends "artistas/base.html" %}
+{% block body_class %}page-delete{% endblock %}
+
+{% block content %}
+<div class="fullscreen-center">
+    <div class="form-box form-box-danger">
+        <h1 class="form-title" style="color: var(--danger);">Excluir Gênero?</h1>
+        <p class="text-center mb-20">
+            Vai apagar o estilo: <br>
+            <strong class="text-highlight">{{ genero.nome }}</strong>
+        </p>
+        <p class="text-center mb-30" style="color: var(--text-muted); font-size: 0.8rem;">
+            Nota: Você não pode apagar gêneros que já tenham artistas vinculados.
+        </p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="btn-group">
+                <a href="{% url 'lista_generos' %}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Apagar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

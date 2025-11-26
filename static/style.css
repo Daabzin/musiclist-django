@@ -283,3 +283,65 @@ label {
     display: block; margin-bottom: 8px; color: var(--text-muted);
     font-size: 0.9rem; font-weight: 500; margin-left: 5px;
 }
+
+body.page-delete {
+    background-image: radial-gradient(
+        circle at var(--mouse-x) var(--mouse-y), 
+        rgba(255, 68, 68, 0.15) 0%, 
+        transparent 60%
+    ) !important; 
+}
+
+.flex-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.flex-gap-15 {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-icon-flex {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-color: var(--neon-green); 
+    color: var(--neon-green);
+}
+
+.mr-10 { margin-right: 10px; }
+
+.icon-action {
+    color: var(--text-muted);
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.icon-action svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+.icon-edit:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+
+.icon-delete:hover {
+    color: var(--danger);
+    transform: scale(1.1);
+}
+
+.text-highlight {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

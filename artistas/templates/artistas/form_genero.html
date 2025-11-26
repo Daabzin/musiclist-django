@@ -3,7 +3,9 @@
 {% block content %}
 <div class="fullscreen-center">
     <div class="form-box">
-        <h1 class="form-title">Novo Gênero Musical</h1>
+        <h1 class="form-title">
+            {% if editar %} Editar Gênero {% else %} Novo Gênero {% endif %}
+        </h1>
         
         <form method="POST">
             {% csrf_token %}
