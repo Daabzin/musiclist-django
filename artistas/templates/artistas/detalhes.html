@@ -1,0 +1,36 @@
+{% extends "artistas/base.html" %}
+
+{% block content %}
+<main class="container">
+    <header class="main-header">
+        <div>
+            <h2>Artista</h2>
+            <h1>{{ artista.nome }}</h1>
+            <p class="header-subtitle">{{ artista.genero.nome }} • {{ artista.pais_origem }}</p>
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
+    </header>
+
+    <div class="section-header">
+        <h3>Discografia</h3>
+        <a href="{% url 'novo_album' artista.id %}" class="btn btn-primary">Adicionar Álbum</a>
+    </div>
+    
+    <div class="card-list">
+        {% for album in albuns %}
+            <article class="card" style="cursor: default;">
+                <div>
+                    <span class="card-title">{{ album.titulo }}</span>
+                </div>
+                <span class="card-subtitle">{{ album.ano_lancamento }}</span>
+            </article>
+        {% empty %}
+            <p class="empty-state">Nenhum álbum registrado.</p>
+        {% endfor %}
+    </div>
+
+    <div class="footer-actions">
+        <a href="{% url 'deletar_artista' artista.id %}" class="btn btn-danger">Excluir Registro</a>
+    </div>
+</main>
+{% endblock %}

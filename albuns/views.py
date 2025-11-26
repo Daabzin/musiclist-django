@@ -1,0 +1,22 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views import View
+from .forms import AlbumForm
+from artistas.models import Artista
+
+class NovoAlbumView(View):
+    def get(self, request, artista_id):
+        artista = get_object_or_404(Artista, id=artista_id)
+        form = AlbumForm()
+        return render(request, 'albuns/form_album.html', {'form': form, 'artista': artista})
+
+    def post(self, request, artista_id):
+        artista = get_object_or_404(Artista, id=artista_id)
+        form = AlbumForm(request.POST)
+        
+        if form.is_valid():
+            album = form.save(commit=False)
+            album.artista = artista
+            album.save()
+            return redirect('detalhes', id=artista_id)
+            
+        return render(request, 'albuns/form_album.html', {'form': form, 'artista': artista})

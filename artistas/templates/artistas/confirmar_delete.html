@@ -1,0 +1,26 @@
+{% extends "artistas/base.html" %}
+
+{% block content %}
+<div class="fullscreen-center">
+    <div class="form-box form-box-danger">
+        
+        <h1 class="form-title" style="color: var(--danger);">⚠ Atenção</h1>
+        
+        <p class="text-center mb-20">
+            Tem certeza que deseja apagar <strong>{{ artista.nome }}</strong>?
+        </p>
+        
+        <p class="text-center mb-30" style="color: var(--text-muted);">
+            Todos os álbuns vinculados também serão perdidos permanentemente.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="btn-group">
+                <a href="{% url 'detalhes' artista.id %}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Sim, Excluir Tudo</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

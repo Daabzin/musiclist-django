@@ -1,0 +1,25 @@
+{% extends "artistas/base.html" %}
+
+{% block content %}
+<div class="fullscreen-center">
+    <div class="form-box">
+        <h1 class="form-title">Adicionar Álbum</h1>
+        
+        <p class="form-highlight-text">
+            Artista: {{ artista.nome }}
+        </p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Gravar Disco</button>
+        </form>
+
+        <div class="form-footer">
+            <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

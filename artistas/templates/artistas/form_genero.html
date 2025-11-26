@@ -1,0 +1,21 @@
+{% extends "artistas/base.html" %}
+
+{% block content %}
+<div class="fullscreen-center">
+    <div class="form-box">
+        <h1 class="form-title">Novo Gênero Musical</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Salvar Gênero</button>
+        </form>
+
+        <div class="form-footer">
+            <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

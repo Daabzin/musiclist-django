@@ -1,0 +1,21 @@
+{% extends "artistas/base.html" %}
+
+{% block content %}
+<div class="fullscreen-center">
+    <div class="form-box">
+        <h1 class="form-title">Novo Artista</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Salvar no Sistema</button>
+        </form>
+
+        <div class="form-footer">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
