@@ -3,7 +3,14 @@
 {% block content %}
 <div class="fullscreen-center">
     <div class="form-box">
-        <h1 class="form-title">Adicionar Álbum</h1>
+        
+        <h1 class="form-title">
+            {% if editar %}
+                Editar Álbum
+            {% else %}
+                Adicionar Álbum
+            {% endif %}
+        </h1>
         
         <p class="form-highlight-text">
             Artista: {{ artista.nome }}
@@ -14,7 +21,7 @@
             <div class="form-group">
                 {{ form.as_p }}
             </div>
-            <button type="submit" class="btn btn-primary btn-full">Gravar Disco</button>
+            <button type="submit" class="btn btn-primary btn-full">Salvar Alterações</button>
         </form>
 
         <div class="form-footer">

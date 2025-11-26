@@ -16,13 +16,31 @@
         <a href="{% url 'novo_album' artista.id %}" class="btn btn-primary">Adicionar Álbum</a>
     </div>
     
-    <div class="card-list">
+    <div class="card-list   ">
         {% for album in albuns %}
-            <article class="card" style="cursor: default;">
+            <article class="card" style="cursor: default; display: flex; justify-content: space-between; align-items: center;">
+                
                 <div>
                     <span class="card-title">{{ album.titulo }}</span>
+                    <span class="card-subtitle" style="display: block;">{{ album.ano_lancamento }}</span>
                 </div>
-                <span class="card-subtitle">{{ album.ano_lancamento }}</span>
+
+                <div style="display: flex; gap: 15px;">
+                    
+                    <a href="{% url 'editar_album' album.id %}" title="Editar" style="color: var(--text-muted); transition: 0.3s;" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#a0a0a0'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                    </a>
+
+                    <a href="{% url 'deletar_album' album.id %}" title="Excluir" style="color: var(--text-muted); transition: 0.3s;" onmouseover="this.style.color='#ff4444'" onmouseout="this.style.color='#a0a0a0'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </a>
+
+                </div>
+
             </article>
         {% empty %}
             <p class="empty-state">Nenhum álbum registrado.</p>

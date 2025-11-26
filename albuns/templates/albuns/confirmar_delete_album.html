@@ -1,0 +1,27 @@
+{% extends "artistas/base.html" %}
+
+{% block content %}
+<div class="fullscreen-center">
+    <div class="form-box form-box-danger">
+        
+        <h1 class="form-title" style="color: var(--danger);">Excluir Álbum?</h1>
+        
+        <p class="text-center mb-20">
+            Você vai apagar o disco: <br>
+            <strong style="color: #fff; font-size: 1.2rem;">{{ album.titulo }}</strong>
+        </p>
+        
+        <p class="text-center mb-30" style="color: var(--text-muted);">
+            Essa ação não pode ser desfeita.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="btn-group">
+                <a href="{% url 'detalhes' album.artista.id %}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Sim, Apagar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
